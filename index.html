@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descarga la App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    .mobile, .desktop {
+      display: none;
+    }
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Descarga Nuestra App</h1>
+
+  <!-- Contenido para móviles -->
+  <div class="mobile">
+    <p>Descarga la aplicación directamente:</p>
+    <button onclick="window.location.href='https://example.com/app-download'">Descargar App</button>
+  </div>
+
+  <!-- Contenido para escritorio -->
+  <div class="desktop">
+    <p>Escanea el código QR para descargar la app:</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example.com/app-download" alt="Código QR para descargar la app">
+  </div>
+
+  <script>
+    // Detecta el tipo de dispositivo
+    function detectDevice() {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        document.querySelector('.mobile').style.display = 'block';
+      } else {
+        document.querySelector('.desktop').style.display = 'block';
+      }
+    }
+
+    // Llama a la función de detección
+    detectDevice();
+  </script>
+</body>
+</html>
